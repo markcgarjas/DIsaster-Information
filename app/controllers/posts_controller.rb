@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      flash[:notice] = "Post was created successfully."
+      flash[:notice] = "Disaster Information was created successfully."
       redirect_to posts_path
     else
       render :new, status: :unprocessable_entity
@@ -22,9 +22,19 @@ class PostsController < ApplicationController
   end
 
   def show
-
   end
 
+  def edit
+  end
+
+  def update
+    @post.update(post_params)
+    @post.user = current_user
+    if @post.save
+      flash[:notice] = "Disaster Information was update successfully."
+      redirect_to posts_path
+    end
+  end
   private
 
   def post_params

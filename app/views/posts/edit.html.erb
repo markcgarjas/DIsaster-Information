@@ -1,0 +1,18 @@
+<h1>Edit Disaster Information's</h1>
+
+<%= form_with model: @post do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :content %><br>
+    <%= form.text_field :content %>
+  </div>
+  <div>
+    <%= form.label :address %><br>
+    <%= form.text_area :address, rows: 4%>
+  </div>
+  <%= form.submit %>
+<% end %>
+<%= link_to 'Back', posts_path%>

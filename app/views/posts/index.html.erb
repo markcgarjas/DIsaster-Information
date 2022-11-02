@@ -17,7 +17,9 @@
       <td><%= post.title %></td>
       <td><%= post.content %></td>
       <td><%= post.address %></td>
-      <td><%= link_to 'Show', post_path(post) %></td>
+      <td><%= link_to 'Show', post_path(post) %>
+          <%= link_to 'Edit', edit_post_path(post) %>
+      </td>
     </tr>
   <% end %>
   </tbody>
