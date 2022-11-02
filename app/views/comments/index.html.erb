@@ -1,0 +1,10 @@
+<h1>Title <%= @post.title %></h1>
+
+<h2>Comments</h2>
+<ul>
+  <% @comments.each do |comment| %>
+    <li><%= comment.content %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back to Home' ,posts_path %>
