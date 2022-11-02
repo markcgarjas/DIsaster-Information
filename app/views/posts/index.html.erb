@@ -6,7 +6,7 @@
     <th>ID</th>
     <th>Title</th>
     <th>Content</th>
-    <th>Description</th>
+    <th>Address</th>
   </tr>
   </thead>
   <tbody>
@@ -15,9 +15,9 @@
       <td><%= post.id %></td>
       <td><%= post.title %></td>
       <td><%= post.content %></td>
-      <td><%= post.description %></td>
+      <td><%= post.address %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
-  
+<%= link_to 'Add Disaster Information', new_post_path %>
