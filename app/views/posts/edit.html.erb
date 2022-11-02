@@ -1,5 +1,11 @@
 <h1>Edit Disaster Information's</h1>
-
+<% if @post.errors.any? %>
+  <ul>
+    <% @post.errors.each do |error| %>
+      <li class><%= error.full_message %></li>
+    <% end %>
+  </ul>
+<% end %>
 <%= form_with model: @post do |form| %>
   <div>
     <%= form.label :title %><br>
