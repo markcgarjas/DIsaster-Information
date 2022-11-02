@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   root "posts#index"
 
   resources :types
-  resources :posts
+  resources :posts do
+    resources :comments, except: :show
+  end
 end
