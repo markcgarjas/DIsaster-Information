@@ -21,6 +21,7 @@
   </div>
   <div>
     <%= form.collection_check_boxes :type_ids, Type.all, :id, :name %>
+    <%= link_to 'Add Types', new_type_path(@post) %>
   </div>
 <%= form.submit %>
 <% end %>

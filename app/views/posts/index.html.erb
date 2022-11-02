@@ -1,6 +1,6 @@
 <div class="text-center"><h1>Disaster Information's</h1></div>
 <div class="container">
-  <table class="table table-bordered table-responsive">
+  <table class="table table-responsive table-hover table-group-divider">
     <thead class="bg-info text-center">
     <tr>
       <th>ID</th>
@@ -8,7 +8,7 @@
       <th>Content</th>
       <th>Address</th>
       <th>Types of Disaster</th>
-      <th>Comments</th>
+      <th colspan="2">Comments</th>
       <th colspan="3">Action</th>
     </tr>
     </thead>
@@ -21,7 +21,7 @@
         <td><%= post.address %></td>
         <td><%= post.types.pluck(:name).join(', ') %></td>
         <td><%= link_to 'Comments', post_comments_path(post) %></td>
-        <td><%= link_to 'Add Comment', new_post_comment_path(post) if post.user == current_user %></td>
+        <td><%= link_to 'Add Comment', new_post_comment_path(post) if user_signed_in? %></td>
         <td><%= link_to 'Show', post_path(post), class: 'btn btn-outline-dark me-2' %></td>
         <td><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-outline-dark me-2' if post.user == current_user %></td>
         <td><%= button_to 'Delete', post_path(post), class: 'btn btn-outline-dark me-2', method: :delete, :onclick => "return confirm('Are you sure you want to delete?')" if post.user == current_user %></td>
