@@ -19,6 +19,9 @@
     <%= form.label :address %><br>
     <%= form.text_area :address, rows: 4%>
   </div>
+  <div>
+    <%= form.collection_check_boxes :type_ids, Type.all, :id, :name %>
+  </div>
 <%= form.submit %>
 <% end %>
 <%= link_to 'Back', posts_path%>

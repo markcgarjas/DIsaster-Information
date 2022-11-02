@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post_params, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.includes(:user).all
+    @posts = Post.includes(:user, :types).all
   end
 
   def new
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :address)
+    params.require(:post).permit(:title, :content, :address , type_ids: [])
   end
 
   def set_post_params
