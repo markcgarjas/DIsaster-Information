@@ -1,27 +1,28 @@
-<h1>Disaster Information's</h1>
-
-<table class="table table-bordered table-responsive">
-  <thead class="bg-info">
-  <tr>
-    <th>ID</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Address</th>
-    <th>Action</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @posts.each do |post| %>
+<div class="text-center"><h1>Disaster Information's</h1></div>
+<div class="container">
+  <table class="table table-bordered table-responsive">
+    <thead class="bg-info text-center">
     <tr>
-      <td><%= post.id %></td>
-      <td><%= post.title %></td>
-      <td><%= post.content %></td>
-      <td><%= post.address %></td>
-      <td><%= link_to 'Show', post_path(post) %>
-          <%= link_to 'Edit', edit_post_path(post) %>
-      </td>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Address</th>
+      <th colspan="3">Action</th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
-<%= link_to 'Add Disaster Information', new_post_path %>
+    </thead>
+    <tbody class="text-center">
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.id %></td>
+        <td><%= post.title %></td>
+        <td><%= post.content %></td>
+        <td><%= post.address %></td>
+        <td><%= link_to 'Show', post_path(post), class: 'btn btn-outline-dark me-2' %></td>
+        <td><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-outline-dark me-2' %></td>
+        <td><%= button_to 'Delete', post_path(post), class: 'btn btn-outline-dark me-2', method: :delete %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'Add Disaster Information', new_post_path %>
+</div>
