@@ -1,5 +1,5 @@
 class TypesController < ApplicationController
-  before_action :set_params_type, only: [:edit, :update]
+  before_action :set_params_type, only: [:edit, :update, :destroy]
   def index
     @types = Type.all
   end
@@ -33,6 +33,12 @@ class TypesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @type.destroy
+    redirect_to types_path
+
   end
 
 

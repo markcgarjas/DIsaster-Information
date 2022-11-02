@@ -4,7 +4,8 @@
   <% @types.each do |type| %>
     <li>
       <%= type.name %>
-      <%= link_to :edit, edit_type_path(type) %>
+      <%= link_to 'Edit', edit_type_path(type) %>
+      <%= button_to 'Delete', type_path(type),method: :delete%>
     </li>
   <% end %>
 </ul>
