@@ -1,0 +1,11 @@
+<h1>Types of Disaster</h1>
+
+<ul>
+  <% @types.each do |type| %>
+    <li>
+      <%= type.name %>
+      <%= link_to :edit, edit_type_path(type) %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to 'Back', new_post_path %>
