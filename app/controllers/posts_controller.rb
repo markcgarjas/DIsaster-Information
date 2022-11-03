@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post_params, only: [:show, :edit, :update, :destroy]
-
   def index
-    @posts = Post.includes(:user, :types).all
+    @posts = Post.includes(:user, :types).order(comments_count: :desc).kept
+    @hot_posts = Post.order(comments_count: :desc).select(:id).limit(3)
   end
 
   def new
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   def destroy
     if @post.comments_count >= 1
       flash[:notice] = "The post with comments can't be deleted."
-    else @post.destroy
+    else @post.discard
     end
     redirect_to posts_path
   end
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :address , type_ids: [])
+    params.require(:post).permit(:title, :content, :address, type_ids: [])
   end
 
   def set_post_params
