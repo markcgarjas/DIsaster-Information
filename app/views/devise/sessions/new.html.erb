@@ -5,6 +5,7 @@
         <div class="card shadow-lg rounded-3">
           <div class="card-body bg-light">
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
               <h1 class="h3 mb-3 fw-normal">Login</h1>
               <%= image_tag ('mm.jpeg'), width: "90", height: "70" %>
 
@@ -31,8 +32,9 @@
 
               </div>
             <% end %>
+            <br>
             <%= render "devise/shared/links" %>
-            <p class="mt-5 mb-3 text-muted">&copy;2022</p>
+            <p class="mt-5 mb-1 text-muted">&copy;2022</p>
           </div>
         </div>
       </div>

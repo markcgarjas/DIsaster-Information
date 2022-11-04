@@ -1,29 +1,46 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="text-center">
   <%= render "devise/shared/error_messages", resource: resource %>
+  <main class="form-signin w-100 m-auto">
+    <div class="d-flex justify-content-sm-around align-content-center">
+      <div class="col-3">
+        <div class="card shadow-lg rounded-3">
+          <div class="card-body bg-light">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+              <h1 class="h3 mb-3 fw-normal">Sign up</h1>
+              <%= image_tag ('mm.jpeg'), width: "90", height: "70" %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+              <div class="form-floating mt-3">
+                <%= f.email_field :email, class: "form-control", id: "floatingInput", placeholder: "name@example.com" %>
+                <br/>
+                <%= f.label :email, for: "floatingInput" %>
+              </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+              <div class="form-floating">
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+                <%= f.password_field :password, autocomplete: "new-password" ,class: "form-control", id: "floatingInput", placeholder: "Password" %>
+                <%= f.label :password , for: "floatingInput" %>
+                <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %>
+              </div>
 
-<%= render "devise/shared/links" %>
+              <div class="form-floating mt-2">
+                <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class: "form-control", id: "floatingInput", placeholder: "Password" %>
+                <%= f.label :password_confirmation , for: "floatingInput"%><br />
+              </div>
+
+              <div class="actions">
+                <%= f.submit "Sign up", class: "w-100 btn btn-lg btn-primary" %>
+
+              </div>
+            <% end %>
+            <br>
+            <%= render "devise/shared/links" %>
+            <p class="mt-5 mb-1 text-muted">&copy;2022</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
