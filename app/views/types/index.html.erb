@@ -1,13 +1,44 @@
-<h1>Types of Disaster</h1>
+<div class="text-center mb-4 text-light">
+  <div class="container">
+    <div class="d-flex justify-content-sm-around">
+      <div class="col-7">
+        <div class="card bg-dark">
+          <div class="card-body">
+            <h3>Types of Disaster</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<ul>
-  <% @types.each do |type| %>
-    <li>
-      <%= type.name %>
-      <%= link_to 'Edit', edit_type_path(type) %>
-      <%= button_to 'Delete', type_path(type),method: :delete%>
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to 'Add Types', new_type_path %> | <%= link_to 'Back', new_post_path %>
+<div class="container mt-2">
+  <div class="d-flex justify-content-center align-content-center">
+    <div class="col-7">
+      <div class="card m-1">
+        <div class="card-body">
+          <% @types.each do |type| %>
+            <%= type.name %>
+            <table>
+              <thead>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><%= link_to 'Edit', edit_type_path(type), class: 'btn btn-outline-dark me-2' %></td>
+                <td><%= button_to 'Delete', type_path(type), class: 'btn btn-outline-dark me-2', :onclick => "return confirm('Are you sure you want to delete?')", method: :delete %></td>
+              </tr>
+              </tbody>
+            </table>
+          <% end %>
+          <br>
+          <%= link_to 'Add Types', new_type_path, class: 'btn btn-outline-dark me-2' %> <%= link_to 'Back', new_post_path, class: 'btn btn-outline-primary me-2' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
