@@ -41,8 +41,8 @@
                   <%= form.text_field :address, class: "form-control", id: "floatingTextarea2", rows: 5, placeholder: "Address", style: "height: 50px"%>
                   <%= form.label :address, for: "floatingTextarea2" %>
                 </div>
-                <div class="form-check-inline mt-1 mb-1">
-                  <%= form.collection_check_boxes :type_ids, Type.all, :id, :name, class: 'form-check-label', for: 'defaultCheck1' %>
+                <div class="form-check mt-2">
+                  <%= form.collection_check_boxes :type_ids, Type.all, :id, :name, class: 'form-check-input', for: 'defaultCheck1' %>
                   <%= link_to 'Add Types', new_type_path(@post) %>
                 </div>
                 <br>

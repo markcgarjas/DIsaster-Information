@@ -37,6 +37,7 @@ class TypesController < ApplicationController
 
   def destroy
     @type.destroy
+    flash[:notice] = "Category was deleted successfully."
     redirect_to types_path
 
   end

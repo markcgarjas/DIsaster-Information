@@ -41,6 +41,7 @@ class PostsController < ApplicationController
     if @post.comments_count >= 1
       flash[:notice] = "This information has comment you can't delete."
     else @post.discard
+    flash[:notice] = "Disaster Information was delete successfully."
     end
     redirect_to posts_path
   end

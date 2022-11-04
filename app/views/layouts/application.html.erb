@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>App</title>
+  <title>Disaster Information</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
@@ -35,10 +35,9 @@
 </header>
 <body class="mt-5 bg-secondary" style="font-family: Arial, 'Roboto Light', SansSerif ">
 <div class="container">
-  <div class="text-center">
-    <p class="notice alert mt-5 pt-5"><%= notice %> <%= alert %></p>
-
-  </div>
+    <div class="d-flex justify-content-center align-content-sm-start">
+    <div class="notice mt-3 alert alert-info text-center" style="width: 30%"><%= notice %> <%= alert %></div>
+    </div>
 </div>
 <%= yield %>
 </body>

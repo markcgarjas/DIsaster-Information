@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(params_comment)
     @comment.user = current_user
     if @comment.save
+      flash[:notice] = "Comment was created successfully."
       redirect_to post_path(@post)
     else
       render :new
@@ -35,6 +36,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
+    flash[:notice] = "Comment was deleted successfully."
     redirect_to post_path(@post)
   end
   private
