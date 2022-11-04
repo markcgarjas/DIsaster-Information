@@ -30,7 +30,7 @@
               <tbody>
               <tr>
                 <td><%= link_to 'Edit', edit_type_path(type), class: 'btn btn-outline-dark me-2' %></td>
-                <td><%= button_to 'Delete', type_path(type), class: 'btn btn-outline-dark me-2', :onclick => "return confirm('Are you sure you want to delete?')", method: :delete %></td>
+                <td><%= button_to 'Delete', type_path(type), class: 'btn btn-outline-delete me-2', :onclick => "return confirm('Are you sure you want to delete?')", method: :delete %></td>
               </tr>
               </tbody>
             </table>
