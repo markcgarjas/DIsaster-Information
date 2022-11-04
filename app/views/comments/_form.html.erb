@@ -1,14 +1,31 @@
-<%= form_with model: comment, url: path, data: { turbo: false } do |form| %>
-  <% if comment.errors.any? %>
-    <ul>
-      <% comment.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
-  <% end %>
-  <div>
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+<div class="text-center mb-4 text-light">
+  <div class="container">
+    <div class="d-flex justify-content-sm-around">
+      <div class="col-7">
+        <div class="card bg-dark">
+          <div class="card-body">
+            <h3>Edit comment</h3>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <%= form.submit %>
-<% end %>
+</div>
+
+<div class="container mt-2">
+  <%= form_with model: comment, url: path, data: { turbo: false } do |form| %>
+    <div class="d-flex justify-content-sm-around">
+      <div class="col-7">
+        <div class="card m-1">
+          <div class="card-body">
+            <div class="form-floating mt-1">
+              <%= form.text_field :content, class: "form-control", id: "floatingTextarea2", placeholder: "Add Types of Disaster",required: true%>
+              <%= form.label :content, for: "floatingTextarea2" %><br>
+              <%= form.submit class: 'btn btn-outline-dark me-2'%>  <%= link_to 'Back', new_post_path, class: 'btn btn-outline-primary me-2'%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

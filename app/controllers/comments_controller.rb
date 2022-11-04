@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(params_comment)
     @comment.user = current_user
     if @comment.save
-      redirect_to post_comments_path(@post)
+      redirect_to post_path(@post)
     else
       render :new
     end
@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
   def update
     if @comment.update(params_comment)
       flash[:notice] = "Comment was updated successfully."
-      redirect_to post_comments_path(@post)
+      redirect_to post_path(@post)
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to post_comments_path(@post)
+    redirect_to post_path(@post)
   end
   private
 
@@ -47,7 +47,7 @@ class CommentsController < ApplicationController
   end
 
   def params_comment
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content).merge(post_id: params[:post_id])
   end
 
 end

@@ -1,0 +1,17 @@
+<%= form_with model: @post.comments.new, url: path do |form| %>
+
+  <% if post.comments.new.errors.any? %>
+      <ul>
+  <% post.comments.new.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+  <% end %>
+      </ul>
+  <% end %>
+
+  <div class="form-floating mt-1">
+    <%= form.text_area :content, class: "form-control", id: "floatingTextarea2", rows: 5, placeholder: "Add Comments",required: true,style: "height: 100px"%>
+    <%= form.label :Add_Comments, for: "floatingTextarea2" %>
+  </div>
+  <div class="mt-4"><%= form.submit 'Submit Comment', class: 'btn btn-outline-dark me-2'%></div>
+
+<% end %>
