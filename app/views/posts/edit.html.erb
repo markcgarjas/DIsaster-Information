@@ -1,24 +1,60 @@
-<h1>Edit Disaster Information's</h1>
-<% if @post.errors.any? %>
-  <ul>
-    <% @post.errors.each do |error| %>
-      <li class><%= error.full_message %></li>
-    <% end %>
-  </ul>
-<% end %>
-<%= form_with model: @post do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+<div class="text-center mb-4 text-light">
+  <div class="container">
+    <div class="d-flex justify-content-sm-around">
+      <div class="col-7">
+        <div class="card bg-dark">
+          <div class="card-body">
+            <h3>Edit Disaster Information's</h1>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div>
-    <%= form.label :content %><br>
-    <%= form.text_field :content %>
+</div>
+
+<div class="container mt-2">
+  <div class="d-flex justify-content-sm-around">
+    <div class="col-7">
+      <div class="card m-1">
+        <div class="card-body">
+          <% if @post.errors.any? %>
+            <ul>
+              <% @post.errors.each do |error| %>
+                <li class><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          <% end %>
+          <%= form_with model: @post do |form| %>
+            <div class="d-flex justify-content-sm-around align-content-center">
+              <div class="col-10">
+                <div class="form-floating mt-3">
+                  <%= form.text_field :title, class: "form-control", id: "floatingInput", placeholder: "Title" %>
+                  <%= form.label :title, for: "floatingInput" %>
+                </div>
+                <div class="form-floating mt-1">
+                  <%= form.text_field :content, class: "form-control", id: "floatingInput", placeholder: "Content" %>
+                  <%= form.label :content, for: "floatingInput" %>
+                </div>
+                <div class="form-floating mt-1">
+                  <%= form.text_area :address, class: "form-control", id: "floatingInput", rows: 4, placeholder: "Address",style: "height: 100px"%>
+                  <%= form.label :address, for: "floatingInput" %>
+                </div>
+                <div class="form-check-inline mt-1 mb-1">
+                  <%= form.collection_check_boxes :type_ids, Type.all, :id, :name, class: 'form-check-label', for: 'defaultCheck1' %> |
+                  <%= link_to 'Add Types', new_type_path(@post) %>
+                </div>
+                <br>
+                <%= link_to 'Back', posts_path, class: 'btn btn-outline-primary me-2' %>
+                <%= form.submit class: 'btn btn-outline-dark me-2' %>
+              </div>
+            </div>
+
+          <% end %>
+          <div class="mt-2">
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div>
-    <%= form.label :address %><br>
-    <%= form.text_area :address, rows: 4%>
-  </div>
-  <%= form.submit %>
-<% end %>
-<%= link_to 'Back', posts_path%>
+</div>
