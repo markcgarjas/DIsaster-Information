@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 </head>
-<header class="p-3 bg-dark text-white">
+<header class="p-3 bg-dark text-white fixed-top">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -21,19 +22,24 @@
       </ul>
 
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <!--        <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">-->
+        <%= link_to 'Add Disaster Information', new_post_path , class: 'btn btn-outline-light me-2' if user_signed_in?%>
       </form>
 
       <div class="text-end">
         <%= link_to "Login", new_user_session_path, class: 'btn btn-outline-light me-2' unless user_signed_in? %>
-        <%= button_to "Log Out", destroy_user_session_path, class: 'btn btn-outline-light me-2',method: :delete if user_signed_in?%>
+        <%= button_to "Log Out", destroy_user_session_path, class: 'btn btn-outline-light me-2', method: :delete if user_signed_in? %>
+
       </div>
     </div>
   </div>
 </header>
-<body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<body class="mt-5 bg-secondary" style="font-family: Arial, 'Roboto Light', SansSerif ">
+<div class="container">
+  <div class="text-center">
+    <p class="notice alert mt-5 pt-5"><%= notice %> <%= alert %></p>
+
+  </div>
+</div>
 <%= yield %>
 </body>
 </html>
