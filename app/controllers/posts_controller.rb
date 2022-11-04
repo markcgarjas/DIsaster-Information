@@ -39,7 +39,7 @@ class PostsController < ApplicationController
 
   def destroy
     if @post.comments_count >= 1
-      flash[:notice] = "The post with comments can't be deleted."
+      flash[:notice] = "This information has comment you can't delete."
     else @post.discard
     end
     redirect_to posts_path
