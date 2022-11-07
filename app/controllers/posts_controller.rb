@@ -23,11 +23,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def edit; end
 
-  def edit
-  end
+  def show; end
 
   def update
     @post.update(post_params)

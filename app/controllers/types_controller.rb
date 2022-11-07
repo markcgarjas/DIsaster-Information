@@ -1,5 +1,6 @@
 class TypesController < ApplicationController
   before_action :set_params_type, only: [:edit, :update, :destroy]
+
   def index
     @types = Type.all
   end
@@ -18,13 +19,9 @@ class TypesController < ApplicationController
     end
   end
 
-  def edit ;
+  def edit; end
 
-  end
-
-  def show
-
-  end
+  def show; end
 
   def update
     if @type.update(params_type)
@@ -41,7 +38,6 @@ class TypesController < ApplicationController
     redirect_to types_path
 
   end
-
 
   private
 
