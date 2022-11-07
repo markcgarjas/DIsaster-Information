@@ -4,5 +4,4 @@ class Type < ApplicationRecord
   has_many :post_type_ships, dependent: :restrict_with_exception
   has_many :posts, through: :post_type_ships
 
-
 end

@@ -17,8 +17,10 @@
     <div class="col-7">
       <div class="card m-1">
         <div class="card-body">
-          <strong class="">Content:</strong><br><p class="m-2"><%= @post.content %></p>
-          <strong class="">Address:</strong><p class="m-2"><%= @post.address %></p>
+          <strong class="">Content:</strong><br>
+          <p class="m-2"><%= @post.content %></p>
+          <strong class="">Address:</strong>
+          <p class="m-2"><%= @post.address %></p>
 
           <div class="accordion mt-4" id="accordionExample">
             <div class="accordion-item">
@@ -44,14 +46,14 @@
                           <tbody>
                           <tr>
                             <td><%= link_to 'Edit', edit_post_comment_path(@post, comment), class: 'btn btn-outline-dark me-2' if comment.user == current_user %></td>
-                            <td><%= button_to 'Delete', post_comment_path(@post, comment), class: 'btn btn-outline-danger me-2', :onclick => "return confirm('Are you sure you want to delete?')",method: :delete if comment.user == current_user %></td>
+                            <td><%= button_to 'Delete', post_comment_path(@post, comment), class: 'btn btn-outline-danger me-2', :onclick => "return confirm('Are you sure you want to delete?')", method: :delete if comment.user == current_user %></td>
                           </tr>
                           </tbody>
                         </table>
                       </article>
                       <hr>
                     <% end %>
-                    <%= render partial: 'comments/form1', locals: { post: @post, comment: @comment, path: post_comments_path(@post)} if user_signed_in? %>
+                    <%= render partial: 'comments/form1', locals: { post: @post, comment: @comment, path: post_comments_path(@post) } if user_signed_in? %>
                   </div>
                 </div>
               </div>

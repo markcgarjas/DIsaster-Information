@@ -19,11 +19,13 @@
         <div class="col-7">
           <div class="card m-1">
             <div class="card-body">
-              <%= image_tag ('hot2.png'), width: "90", height: "70", class: 'float-end' if @hot_posts.include?(post)%>
+              <%= image_tag ('hot2.png'), width: "90", height: "70", class: 'float-end' if @hot_posts.include?(post) %>
               <p class="fs-4"><span class="text-danger">Category: <%= post.types.pluck(:name).join(', ') %></span></p>
               <p class="fs-4"><strong>Title: </strong><%= post.title %></p>
               <p class="fs-4"><strong>Creator: </strong><%= post.user.email %></p>
               <p class="fs-4"><strong>Address: </strong><%= post.address %></p>
+              <p class="fs-4"><strong>Address: </strong><%= post.user.current_sign_in_ip %></p>
+              <p class="fs-4"><strong>Address: </strong><%= post.user.current_sign_in_at %></p>
 
               <p class="fs-4"><strong>No. of Comments: </strong><%= post.comments_count %></p>
               <table>

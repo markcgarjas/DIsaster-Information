@@ -18,16 +18,16 @@
 
               <div class="form-floating">
 
-                <%= f.password_field :password, autocomplete: "new-password" ,class: "form-control", id: "floatingInput", placeholder: "Password" %>
-                <%= f.label :password , for: "floatingInput" %>
+                <%= f.password_field :password, autocomplete: "new-password", class: "form-control", id: "floatingInput", placeholder: "Password" %>
+                <%= f.label :password, for: "floatingInput" %>
                 <% if @minimum_password_length %>
                   <em>(<%= @minimum_password_length %> characters minimum)</em>
                 <% end %>
               </div>
 
               <div class="form-floating mt-2">
-                <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class: "form-control", id: "floatingInput", placeholder: "Password" %>
-                <%= f.label :password_confirmation , for: "floatingInput"%><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", id: "floatingInput", placeholder: "Password" %>
+                <%= f.label :password_confirmation, for: "floatingInput" %><br/>
               </div>
 
               <div class="actions">

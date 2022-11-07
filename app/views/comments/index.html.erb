@@ -3,9 +3,9 @@
 <h2>Comments</h2>
 <ul>
   <% @comments.each do |comment| %>
-    <li><%= comment.content %> <%= link_to 'Edit', edit_post_comment_path(@post, comment)  if comment.user == current_user %></li>
+    <li><%= comment.content %> <%= link_to 'Edit', edit_post_comment_path(@post, comment) if comment.user == current_user %></li>
     <%= button_to 'Delete', post_comment_path(@post, comment), method: :delete if comment.user == current_user %>
   <% end %>
 </ul>
 
-<%= link_to 'Back' ,posts_path %>
+<%= link_to 'Back', posts_path %>

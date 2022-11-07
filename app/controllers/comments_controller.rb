@@ -2,10 +2,10 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_post
   before_action :set_comment, only: [:edit, :update, :destroy]
+
   def index
     @comments = @post.comments
   end
-
 
   def new
     @comment = @post.comments.build
@@ -22,8 +22,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit ;
-  end
+  def edit; end
 
   def update
     if @comment.update(params_comment)
@@ -39,11 +38,13 @@ class CommentsController < ApplicationController
     flash[:notice] = "Comment was deleted successfully."
     redirect_to post_path(@post)
   end
+
   private
 
   def set_post
     @post = Post.find(params[:post_id])
   end
+
   def set_comment
     @comment = @post.comments.find(params[:id])
   end

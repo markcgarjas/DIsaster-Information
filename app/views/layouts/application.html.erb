@@ -22,7 +22,7 @@
       </ul>
 
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <%= link_to 'Add Disaster Information', new_post_path , class: 'btn btn-outline-light me-2' if user_signed_in?%>
+        <%= link_to 'Add Disaster Information', new_post_path, class: 'btn btn-outline-light me-2' if user_signed_in? %>
       </form>
 
       <div class="text-end">
@@ -35,9 +35,11 @@
 </header>
 <body class="mt-5 bg-secondary" style="font-family: Arial, 'Roboto Light', SansSerif ">
 <div class="container">
-    <div class="d-flex justify-content-center align-content-sm-start">
-    <div class="notice mt-3 alert alert-info text-center" style="width: 30%"><%= notice %> <%= alert %></div>
+  <div class="d-flex justify-content-center align-content-sm-start">
+    <div class="notice mt-3 alert alert-info text-center" style="width: 30%">
+      <%= notice %> <%= alert %>
     </div>
+  </div>
 </div>
 <%= yield %>
 </body>

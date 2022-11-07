@@ -36,11 +36,12 @@
                   <%= form.label :content, for: "floatingInput" %>
                 </div>
                 <div class="form-floating mt-1">
-                  <%= form.text_area :address, class: "form-control", id: "floatingInput", rows: 4, placeholder: "Address",style: "height: 100px"%>
+                  <%= form.text_area :address, class: "form-control", id: "floatingInput", rows: 4, placeholder: "Address", style: "height: 100px" %>
                   <%= form.label :address, for: "floatingInput" %>
                 </div>
                 <div class="form-check-inline mt-1 mb-1">
-                  <%= form.collection_check_boxes :type_ids, Type.all, :id, :name, class: 'form-check-label', for: 'defaultCheck1' %> |
+                  <%= form.collection_check_boxes :type_ids, Type.all, :id, :name, class: 'form-check-label', for: 'defaultCheck1' %>
+                  |
                   <%= link_to 'Add Types', new_type_path(@post) %>
                 </div>
                 <br>
