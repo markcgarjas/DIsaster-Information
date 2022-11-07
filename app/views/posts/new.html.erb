@@ -41,14 +41,15 @@
                   <%= form.text_field :address, class: "form-control", id: "floatingTextarea2", rows: 5, placeholder: "Address", style: "height: 50px" %>
                   <%= form.label :address, for: "floatingTextarea2" %>
                 </div>
-                <div class="form-check mt-2">
+                <div class="form-check-outline mt-3">
                   <%= form.collection_check_boxes :type_ids, Type.all, :id, :name, class: 'form-check-input', for: 'defaultCheck1' %>
                   <%= link_to 'Add Types', new_type_path(@post) %>
                 </div>
                 <br>
-                <%= form.submit class: 'btn btn-outline-dark me-2' %>
-                <%= link_to 'Back', posts_path, class: 'btn btn-outline-primary me-2' %>
-
+                <div class="d-flex justify-content-center align-content-center">
+                  <%= form.submit class: 'btn btn-outline-dark me-2' %>
+                  <%= link_to 'Back', posts_path, class: 'btn btn-outline-primary me-2' %>
+                </div>
               </div>
             </div>
           <% end %>
