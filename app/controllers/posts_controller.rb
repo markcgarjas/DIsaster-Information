@@ -10,6 +10,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @random = sprintf "%04d", rand(2-9999), unique: true
   end
 
   def create
@@ -49,7 +50,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :address, type_ids: [])
+    params.require(:post).permit(:title, :content, :address, :unique_string, type_ids: [])
   end
 
   def set_post_params
