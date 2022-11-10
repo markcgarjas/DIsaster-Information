@@ -87,6 +87,7 @@ GEM
     discard (1.2.1)
       activerecord (>= 4.2, < 8)
     erubi (1.11.0)
+    geocoder (1.8.1)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -198,6 +199,7 @@ DEPENDENCIES
   debug
   devise
   discard (~> 1.2)
+  geocoder
   jbuilder
   jsbundling-rails
   mysql2 (~> 0.5)
