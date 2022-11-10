@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  get "unique_string", to: "posts#index"
   # Defines the root path route ("/")
   root "posts#index"
 
@@ -11,4 +9,5 @@ Rails.application.routes.draw do
     resources :comments, except: :show
   end
 
+  get "/:unique_string", to: "posts#short_url"
 end

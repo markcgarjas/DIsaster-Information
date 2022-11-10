@@ -31,6 +31,7 @@
               <p class="fs-5"><strong>IP Address: </strong><%= post.user.current_sign_in_ip %></p>
               <p class="fs-5"><strong>Date and Time: </strong><%= post.user.current_sign_in_at %></p>
               <p class="fs-5"><strong>No. of Comments: </strong><%= post.comments_count %></p>
+              <p class="fs-5 m-3 d-flex justify-content-end align-content-end"><%= link_to "#{post.unique_string}",post.unique_string %></p>
               <table class="d-flex justify-content-center align-content-center">
                 <thead>
                 <tr>

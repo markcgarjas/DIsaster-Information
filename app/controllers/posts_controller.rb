@@ -5,12 +5,16 @@ class PostsController < ApplicationController
   def index
     @posts = Post.includes(:user, :types).order(comments_count: :desc).kept
     @hot_posts = Post.order(comments_count: :desc).limit(3).select { |post| post.comments_count >= 1 }
+  end
 
+  def short_url
+    @post = Post.find_by(unique_string: params[:unique_string])
+    redirect_to post_path(@post)
   end
 
   def new
     @post = Post.new
-    @random = sprintf "%04d", rand(2-9999), unique: true
+    @random = sprintf "%04d", rand(2 - 9999), unique: true
   end
 
   def create
