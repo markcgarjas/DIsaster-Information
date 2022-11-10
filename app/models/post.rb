@@ -17,7 +17,7 @@ class Post < ApplicationRecord
 
   def generate_short_string
     loop do
-      @string_unique = rand(-9999).to_s.rjust(4, '0')
+      @string_unique = sprintf "%04d", rand(2 - 9999)
       break unless Post.exists?(unique_string: @string_unique)
     end
     self.unique_string = @string_unique
