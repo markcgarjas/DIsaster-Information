@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_09_043619) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_10_100209) do
   create_table "comments", charset: "utf8mb4", force: :cascade do |t|
     t.text "content"
     t.bigint "post_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_043619) do
     t.string "tag"
     t.datetime "discarded_at"
     t.string "unique_string"
+    t.string "ip_address"
     t.index ["discarded_at"], name: "index_posts_on_discarded_at"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
