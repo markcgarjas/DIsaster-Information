@@ -14,7 +14,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @random = sprintf "%04d", rand(2 - 9999), unique: true
   end
 
   def create
