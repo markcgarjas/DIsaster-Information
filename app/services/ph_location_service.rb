@@ -47,8 +47,8 @@ class PhLocationService
     data.each do |city_municipality|
       address_city_municipality = Address::CityMunicipality.find_or_initialize_by(code: city_municipality['code'])
       district = Address::District.find_or_initialize_by(code: city_municipality['code'])
-      region = Address::Region.find_by_code(district['regionCode'])
-      province = Address::Province.find_by_code(district['regionCode'])
+      region = Address::Region.find_by_code(city_municipality['regionCode'])
+      province = Address::Province.find_by_code(city_municipality['regionCode'])
       address_city_municipality.region = region
       address_city_municipality.province = province
       address_city_municipality.district = district
