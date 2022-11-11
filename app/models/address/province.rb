@@ -1,6 +1,6 @@
-class Address::Region < ApplicationRecord
+class Address::Province < ApplicationRecord
   validates :code, uniqueness: true
   validates :name, presence: true
 
-  has_many :provinces
+  belongs_to :region
 end
