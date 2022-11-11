@@ -5,4 +5,6 @@ class Address::CityMunicipality < ApplicationRecord
   belongs_to :region
   belongs_to :province
   belongs_to :district
+
+  has_many :barangays
 end
