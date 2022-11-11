@@ -1,8 +1,7 @@
-class Address::Province < ApplicationRecord
+class Address::District < ApplicationRecord
   validates :code, uniqueness: true
   validates :name, presence: true
 
   belongs_to :region
-
-  has_many :districts
+  belongs_to :province
 end
