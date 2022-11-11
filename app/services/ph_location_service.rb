@@ -60,10 +60,10 @@ class PhLocationService
     data = JSON.parse(request.body)
     data.each do |barangay|
       address_barangay = Address::Barangay.find_or_initialize_by(code: barangay['code'])
-      city_municipality = Address::CityMunicipality.find_or_initialize_by(code: barangay['code'])
-      district = Address::District.find_or_initialize_by(code: barangay['code'])
       region = Address::Region.find_by_code(barangay['regionCode'])
-      province = Address::Province.find_by_code(barangay['regionCode'])
+      province = Address::Province.find_by_code(barangay['provinceCode'])
+      district = Address::District.find_or_initialize_by(code: barangay['districtCode'])
+      city_municipality = Address::CityMunicipality.find_or_initialize_by(code: barangay['cityCode'])
       address_barangay.region = region
       address_barangay.province = province
       address_barangay.district = district
