@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_11_043242) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_11_053703) do
+  create_table "address_city_municipalities", charset: "utf8mb4", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.bigint "region_id"
+    t.bigint "province_id"
+    t.bigint "district_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["district_id"], name: "index_address_city_municipalities_on_district_id"
+    t.index ["province_id"], name: "index_address_city_municipalities_on_province_id"
+    t.index ["region_id"], name: "index_address_city_municipalities_on_region_id"
+  end
+
   create_table "address_districts", charset: "utf8mb4", force: :cascade do |t|
     t.string "code"
     t.string "name"

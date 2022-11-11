@@ -5,4 +5,5 @@ class Address::Province < ApplicationRecord
   belongs_to :region
 
   has_many :districts
+  has_many :city_municipalities
 end
