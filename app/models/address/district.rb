@@ -5,7 +5,6 @@ class Address::District < ApplicationRecord
   belongs_to :region
 
   has_many :city_municipalities
-  has_many :barangays
 
   default_scope { order(name: :asc) }
 end
