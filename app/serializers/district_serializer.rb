@@ -1,4 +1,4 @@
-class ProvinceSerializer < ActiveModel::Serializer
+class DistrictSerializer < ActiveModel::Serializer
   attributes :name, :region, :id
 
   def region
