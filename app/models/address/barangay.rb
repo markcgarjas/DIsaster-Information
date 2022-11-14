@@ -6,4 +6,6 @@ class Address::Barangay < ApplicationRecord
   belongs_to :province
   belongs_to :district
   belongs_to :city_municipality
+
+  default_scope { order(name: :asc) }
 end
