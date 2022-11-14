@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   end
 
   get "/:unique_string", to: "posts#short_url"
+
+  namespace :api do
+    resources :regions, only: :index, defaults: { format: :json }
+  end
 end
