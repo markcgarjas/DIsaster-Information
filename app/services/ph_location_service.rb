@@ -49,11 +49,22 @@ class PhLocationService
         address_city_municipality.district = district
         address_city_municipality.name = city_municipality['name']
         address_city_municipality.save
-      else
+      elsif city_municipality['provinceCode']
         province = Address::Province.find_by(code: city_municipality['provinceCode'])
         address_city_municipality.province = province
         address_city_municipality.name = city_municipality['name']
         address_city_municipality.save
+      else
+        if city_municipality['name'] == "City of Isabela"
+          province = Address::Province.find_by_name('Basilan')
+          address_city_municipality.province = province
+          address_city_municipality.save
+        elsif city_municipality['name'] == "City of Cotabato"
+          province = Address::Province.find_by_name('Maguindanao')
+          address_city_municipality.province = province
+          address_city_municipality.save
+        end
+
       end
     end
   end
@@ -77,5 +88,4 @@ class PhLocationService
       end
     end
   end
-
 end
