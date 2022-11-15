@@ -57,14 +57,15 @@ class PhLocationService
       else
         if city_municipality['name'] == "City of Isabela"
           province = Address::Province.find_by_name('Basilan')
+          Address::CityMunicipality.find_or_create_by(code: city_municipality['code'], name: city_municipality['name'])
           address_city_municipality.province = province
           address_city_municipality.save
         elsif city_municipality['name'] == "City of Cotabato"
           province = Address::Province.find_by_name('Maguindanao')
+          Address::CityMunicipality.find_or_create_by(code: city_municipality['code'], name: city_municipality['name'])
           address_city_municipality.province = province
           address_city_municipality.save
         end
-
       end
     end
   end
