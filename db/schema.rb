@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_15_064921) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_15_072123) do
   create_table "address_barangays", charset: "utf8mb4", force: :cascade do |t|
     t.string "code"
     t.string "name"
@@ -34,9 +34,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_064921) do
   create_table "address_districts", charset: "utf8mb4", force: :cascade do |t|
     t.string "code"
     t.string "name"
+    t.bigint "region_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "region_id"
     t.index ["region_id"], name: "index_address_districts_on_region_id"
   end
 
@@ -87,7 +87,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_064921) do
     t.datetime "discarded_at"
     t.string "unique_string"
     t.string "ip_address"
-    t.string "image"
+    t.string "avatar"
     t.index ["discarded_at"], name: "index_posts_on_discarded_at"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end

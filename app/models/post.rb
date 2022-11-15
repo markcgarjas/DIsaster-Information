@@ -10,6 +10,7 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :post_type_ships
   has_many :types, through: :post_type_ships
+  mount_uploader :avatar, AvatarUploader
 
   after_validation :generate_short_string
 
