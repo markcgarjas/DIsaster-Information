@@ -71,13 +71,15 @@ class PhLocationService
     data = JSON.parse(request.body)
     data.each do |barangay|
       if barangay['cityCode']
-        address_city_municipality = Address::CityMunicipality.find_by(code: barangay['cityCode'], name: barangay['name'])
+        address_city_municipality = Address::CityMunicipality.find_by(code: barangay['cityCode'])
         address_barangay = Address::Barangay.find_or_initialize_by(code: barangay['code'])
+        address_barangay.name = barangay['name']
         address_barangay.city_municipality = address_city_municipality
         address_barangay.save
       else
         address_city_municipality = Address::CityMunicipality.find_by(code: barangay['municipalityCode'])
-        address_barangay = Address::Barangay.find_or_initialize_by(code: barangay['code'], name: barangay['name'])
+        address_barangay = Address::Barangay.find_or_initialize_by(code: barangay['code'])
+        address_barangay.name = barangay['name']
         address_barangay.city_municipality = address_city_municipality
         address_barangay.save
       end
