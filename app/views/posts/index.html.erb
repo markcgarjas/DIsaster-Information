@@ -49,7 +49,7 @@
                 <span data-clipboard-target="email"><%= post.user.email %></span>
                 <button class="btn btn-sm btn-outline-primary m-0" data-action="click->clipboard#copy">COPY</button>
               </p>
-              <p><strong>Address: </strong><%= "#{post.region&.name} #{post.province&.name} #{post.address}" %></p>
+              <p><strong>Address: </strong><%= "#{post.region&.name}, #{post.province&.name}, #{post.city_municipality&.name}, #{post.barangay&.name}, #{post.address}" %></p>
               <p class=""><strong>IP Address: </strong><%= post.ip_address %></p>
               <p class=""><strong>Date and Time: </strong><%= post.user.current_sign_in_at %></p>
               <p class=""><strong>No. of Comments: </strong><%= post.comments_count %></p>
