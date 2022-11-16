@@ -46,7 +46,7 @@
                   <%= link_to 'Add Types', new_type_path(@post) %>
                 </div>
                 <br>
-                <div class="form-group d-flex justify-content-center align-content-center">
+                <div class="form-group d-flex justify-content-center align-content-center mb-2">
                   <%= form.file_field :avatar, class: 'form-control' %>
                 </div>
                 <div data-controller='location'>
@@ -59,14 +59,21 @@
                   <div>
                     <%= form.collection_select :address_province_id, [], nil, nil, { prompt: 'SELECT PROVINCE' }, data: { action: 'change->location#fetchCityMunicipalities', location_target: 'selectProvinceId' }, class: 'form-control mt-1 mb-1' %>
                   </div>
+                  <div>
+                    <%= form.collection_select :address_city_municipality_id, [], nil, nil,{ prompt: 'SELECT MUNICIPALITY' }, data: { action: 'change->location#fetchBarangays', location_target: 'selectCityMunicipalityId' }, class: 'form-control mt-1 mb-1'%>
+                  </div>
+                  <div>
+                    <%= form.collection_select :address_barangay_id, [], nil, nil, { prompt: 'SELECT BARANGAY' }, data: { location_target: 'selectBarangayId' }, class: 'form-control mt-1 mb-1' %>
+                  </div>
+                </div>
                 <div class="d-flex justify-content-center align-content-center">
                   <%= form.submit class: 'btn btn-outline-dark me-2' %>
                   <%= link_to 'Back', posts_path, class: 'btn btn-outline-primary me-2' %>
                 </div>
               </div>
-            </div>
           <% end %>
           <div class="mt-2">
+          </div>
           </div>
         </div>
       </div>

@@ -35,15 +35,15 @@
         <div class="col-7">
           <div class="card m-1">
             <div class="card-body">
-              <%= image_tag ('hot2.png'), width: "90", height: "70", class: 'float-end' if @hot_posts.include?(post) %>
               <p class="fs-5">
                 <span class="text-danger d-flex align-content-center justify-content-center">Category: <%= post.types.pluck(:name).join(', ') %></span>
               </p>
-              <p class="text-danger d-flex align-content-center justify-content-center">
+              <p class="text-danger text-center">
                 <%= image_tag "#{post.avatar.url}", width: "200", height: "200" if post.avatar? %>
               </p>
               <p class="fs-5">
                 <span class="d-flex align-content-center justify-content-center"><strong> " <%= post.title %> "</strong></span>
+                <%= image_tag ('hot2.png'), width: "90", height: "70", class: 'float-end' if @hot_posts.include?(post) %>
               </p>
               <p data-controller="clipboard" class=""><strong>Creator: </strong>
                 <span data-clipboard-target="email"><%= post.user.email %></span>
