@@ -16,6 +16,11 @@ class PostsController < ApplicationController
                   Post.human_attribute_name(:content),
                   Post.human_attribute_name(:address),
                   Post.human_attribute_name(:unique_string),
+                  Post.human_attribute_name(:avatar),
+                  Post.human_attribute_name(:address_region_id),
+                  Post.human_attribute_name(:address_province_id),
+                  Post.human_attribute_name(:address_city_municipality_id),
+                  Post.human_attribute_name(:address_barangay_id),
                   Post.human_attribute_name(:types),
                   Post.human_attribute_name(:created_at)]
           @posts.each do |p|
@@ -25,11 +30,16 @@ class PostsController < ApplicationController
                     p.content,
                     p.address,
                     p.unique_string,
+                    p.avatar,
+                    p.address_region_id,
+                    p.address_province_id,
+                    p.address_city_municipality_id,
+                    p.address_barangay_id,
                     p.types.pluck(:name).join(','),
                     p.created_at]
           end
         end
-        send_data csv_string, :filename => "posts-#{Time.now.to_s}.csv"
+        send_data csv_string, :filename => "1post-#{Time.now.to_s}.json"
       }
     end
   end
