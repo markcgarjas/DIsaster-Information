@@ -49,7 +49,16 @@
                 <div class="form-group d-flex justify-content-center align-content-center">
                   <%= form.file_field :avatar, class: 'form-control' %>
                 </div>
-                <br>
+                <div data-controller='location'>
+                  <div>
+                    <%= form.collection_select :address_region_id,
+                                               Address::Region.all, :id, :name,
+                                               { prompt: 'SELECT REGION' },
+                                               data: { action: 'change->location#fetchProvinces', location_target: 'selectRegionId' }, class: 'form-control mt-1 mb-1' %>
+                  </div>
+                  <div>
+                    <%= form.collection_select :address_province_id, [], nil, nil, { prompt: 'SELECT PROVINCE' }, data: { action: 'change->location#fetchCityMunicipalities', location_target: 'selectProvinceId' }, class: 'form-control mt-1 mb-1' %>
+                  </div>
                 <div class="d-flex justify-content-center align-content-center">
                   <%= form.submit class: 'btn btn-outline-dark me-2' %>
                   <%= link_to 'Back', posts_path, class: 'btn btn-outline-primary me-2' %>
