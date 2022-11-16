@@ -17,10 +17,13 @@
     <div class="col-7">
       <div class="card m-1">
         <div class="card-body">
+          <div class="d-flex justify-content-center align-content-center">
+          <%= image_tag "#{@post.avatar.url}", width: "200", height: "200" if @post.avatar? %><br>
+          </div>
           <strong class="">Content:</strong><br>
           <p class="m-2"><%= @post.content %></p>
-          <strong class="">Address:</strong>
-          <p class="m-2"><%= @post.address %></p>
+          <p><strong>Address: </strong></p>
+          <p class="m-2"><%= "#{@post.region&.name}, #{@post.province&.name}, #{@post.city_municipality&.name}, #{@post.barangay&.name}, #{@post.address}" %></p>
 
           <div class="accordion mt-4" id="accordionExample">
             <div class="accordion-item">

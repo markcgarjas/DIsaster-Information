@@ -27,6 +27,9 @@
           <%= form_with model: @post do |form| %>
             <div class="d-flex justify-content-sm-around align-content-center">
               <div class="col-10">
+                <div class="d-flex justify-content-center align-content-center">
+                  <%= image_tag "#{@post.avatar.url}", width: "200", height: "200" if @post.avatar? %><br>
+                </div>
                 <div class="form-floating mt-3">
                   <%= form.text_field :title, class: "form-control", id: "floatingInput", placeholder: "Title" %>
                   <%= form.label :title, for: "floatingInput" %>
@@ -36,8 +39,26 @@
                   <%= form.label :content, for: "floatingInput" %>
                 </div>
                 <div class="form-floating mt-1">
-                  <%= form.text_area :address, class: "form-control", id: "floatingInput", rows: 4, placeholder: "Address", style: "height: 100px" %>
+                  <%= form.text_field :address, class: "form-control", id: "floatingInput", rows: 4, placeholder: "Address"%>
                   <%= form.label :address, for: "floatingInput" %>
+                </div>
+
+                <div data-controller='location'>
+                  <div>
+                    <%= form.collection_select :address_region_id,
+                                               Address::Region.all, :id, :name,
+                                               { prompt: 'SELECT REGION' },
+                                               data: { action: 'change->location#fetchProvinces', location_target: 'selectRegionId' }, class: 'form-control mt-1 mb-1' %>
+                  </div>
+                  <div>
+                    <%= form.collection_select :address_province_id, [], nil, nil, { prompt: 'SELECT PROVINCE' }, data: { action: 'change->location#fetchCityMunicipalities', location_target: 'selectProvinceId' }, class: 'form-control mt-1 mb-1' %>
+                  </div>
+                  <div>
+                    <%= form.collection_select :address_city_municipality_id, [], nil, nil, { prompt: 'SELECT MUNICIPALITY' }, data: { action: 'change->location#fetchBarangays', location_target: 'selectCityMunicipalityId' }, class: 'form-control mt-1 mb-1' %>
+                  </div>
+                  <div>
+                    <%= form.collection_select :address_barangay_id, [], nil, nil, { prompt: 'SELECT BARANGAY' }, data: { location_target: 'selectBarangayId' }, class: 'form-control mt-1 mb-1' %>
+                  </div>
                 </div>
 
                 <div class="form-check-inline mt-3 d-flex justify-content-center align-content-center">

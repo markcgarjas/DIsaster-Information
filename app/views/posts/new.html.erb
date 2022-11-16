@@ -38,16 +38,8 @@
                   <%= form.label :content, for: "floatingInput" %>
                 </div>
                 <div class="form-floating mt-1">
-                  <%= form.text_field :address, class: "form-control", id: "floatingTextarea2", rows: 5, placeholder: "Address", style: "height: 50px" %>
-                  <%= form.label :address, for: "floatingTextarea2" %>
-                </div>
-                <div class="form-check-outline mt-3">
-                  <%= form.collection_check_boxes :type_ids, Type.all, :id, :name, class: 'form-check-input', for: 'defaultCheck1' %>
-                  <%= link_to 'Add Types', new_type_path(@post) %>
-                </div>
-                <br>
-                <div class="form-group d-flex justify-content-center align-content-center mb-2">
-                  <%= form.file_field :avatar, class: 'form-control' %>
+                  <%= form.text_field :country, class: "form-control", id: "floatingTextarea2", rows: 5, placeholder: "Address", value: "Philippines", readonly: true, style: "height: 50px" %>
+                  <%= form.label :country, for: "floatingTextarea2" %>
                 </div>
                 <div data-controller='location'>
                   <div>
@@ -60,10 +52,19 @@
                     <%= form.collection_select :address_province_id, [], nil, nil, { prompt: 'SELECT PROVINCE' }, data: { action: 'change->location#fetchCityMunicipalities', location_target: 'selectProvinceId' }, class: 'form-control mt-1 mb-1' %>
                   </div>
                   <div>
-                    <%= form.collection_select :address_city_municipality_id, [], nil, nil,{ prompt: 'SELECT MUNICIPALITY' }, data: { action: 'change->location#fetchBarangays', location_target: 'selectCityMunicipalityId' }, class: 'form-control mt-1 mb-1'%>
+                    <%= form.collection_select :address_city_municipality_id, [], nil, nil, { prompt: 'SELECT MUNICIPALITY' }, data: { action: 'change->location#fetchBarangays', location_target: 'selectCityMunicipalityId' }, class: 'form-control mt-1 mb-1' %>
                   </div>
                   <div>
                     <%= form.collection_select :address_barangay_id, [], nil, nil, { prompt: 'SELECT BARANGAY' }, data: { location_target: 'selectBarangayId' }, class: 'form-control mt-1 mb-1' %>
+                  </div>
+                </div>
+                <div class="form-check-outline mt-2">
+                  <%= form.collection_check_boxes :type_ids, Type.all, :id, :name, class: 'form-check-input', for: 'defaultCheck1' %>
+                  <%= link_to 'Add Types', new_type_path(@post) %>
+                </div>
+                <div class="form-group d-flex justify-content-center align-content-center mb-2 mt-2">
+                  <div class="m-2 text-center"><strong><%= form.label "Add Image" %></strong>
+                    <%= form.file_field :avatar, class: 'form form-control' %>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center align-content-center">
