@@ -37,8 +37,10 @@
 <div class="container">
 <!--  <p class="notice"><%#= notice %></p>-->
 <!--  <p class="alert"><%#= alert %></p>-->
+
   <div class="d-flex justify-content-center align-content-sm-start">
     <div class="notice mt-3 alert alert-info text-center" style="width: 30%">
+      <%= t( "hello", name: current_user.email) if current_user %>
       <%= notice %> <%= alert %>
     </div>
   </div>
