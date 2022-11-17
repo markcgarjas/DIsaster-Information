@@ -5,15 +5,17 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "posts#index"
 
-  resources :types
-  resources :posts do
-    resources :comments, except: :show
+  constraints(ClientDomainConstraint.new) do
+    resources :posts do
+      resources :comments, except: :show
+    end
   end
-
+  resources :types
   get "/:unique_string", to: "posts#short_url"
-
-  namespace :admin do
-    resources :users
+  constraints(AdminDomainConstraint.new) do
+    namespace :admin do
+      resources :users
+    end
   end
 
   namespace :api do
