@@ -19,6 +19,7 @@
         <div class="card bg-dark">
           <div class="card-body">
             <h3>Disaster Information's</h3>
+            <h3><%= t("post_list") %></h3>
           </div>
         </div>
       </div>
@@ -45,6 +46,8 @@
                 <span class="d-flex align-content-center justify-content-center"><strong> " <%= post.title %> "</strong></span>
                 <%= image_tag ('hot2.png'), width: "90", height: "70", class: 'float-end' if @hot_posts.include?(post) %>
               </p>
+              <td><%= Post.human_attribute_name(:title) %></td>
+              <td><%= Post.human_attribute_name(:content) %></td>
               <p data-controller="clipboard" class=""><strong>Creator: </strong>
                 <span data-clipboard-target="email"><%= post.user.email %></span>
                 <button class="btn btn-sm btn-outline-primary m-0" data-action="click->clipboard#copy">COPY</button>
