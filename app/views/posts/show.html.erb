@@ -38,7 +38,7 @@
                     <% @post.comments.each do |comment| %>
                       <article>
                         <div class="mt-3 mb-1"><%= comment.content %></div>
-                        <strong>by:</strong> <%= comment.user.email %>
+                        <strong>by:</strong> <%= comment.user.email %><p class=""><%= time_ago_in_words(comment.created_at)%> ago</p>
                         <table>
                           <thead>
                           <tr>
