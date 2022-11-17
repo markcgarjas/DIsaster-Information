@@ -11,13 +11,13 @@ Rails.application.routes.draw do
     end
   end
   resources :types
-  get "/:unique_string", to: "posts#short_url"
+
   constraints(AdminDomainConstraint.new) do
     namespace :admin do
       resources :users
     end
   end
-
+  get "/:unique_string", to: "posts#short_url"
   namespace :api do
     resources :regions, only: :index, defaults: { format: :json } do
       resources :provinces, only: :index, defaults: { format: :json } do
