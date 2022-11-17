@@ -1,0 +1,10 @@
+tg:
+  models:
+    post:
+      one: Poste
+      other: Mga Post
+  activerecord:
+    attributes:
+      post:
+        title: Pamagat
+        content: Nilalaman

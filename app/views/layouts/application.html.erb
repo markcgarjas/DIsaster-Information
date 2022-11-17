@@ -43,6 +43,7 @@
       <%= t( "hello", name: current_user.email) if current_user %>
       <%= link_to "EN", params.permit!.merge(locale: 'en') %>
       <%= link_to "zh-CN", params.permit!.merge(locale: 'zh-CN') %>
+      <%= link_to "tagalog", params.permit!.merge(locale: 'tg') %>
       <%= notice %> <%= alert %>
     </div>
   </div>
