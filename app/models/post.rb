@@ -12,7 +12,7 @@ class Post < ApplicationRecord
   has_many :types, through: :post_type_ships
   mount_uploader :avatar, AvatarUploader
   belongs_to :region, class_name: 'Address::Region', foreign_key: 'address_region_id'
-  belongs_to :province, class_name: 'Address::Province', foreign_key: 'address_province_id'
+  belongs_to :province, class_name: 'Address::Province', foreign_key: 'address_province_id', optional: true
   belongs_to :city_municipality, class_name: 'Address::CityMunicipality', foreign_key: 'address_city_municipality_id'
   belongs_to :barangay, class_name: 'Address::Barangay', foreign_key: 'address_barangay_id'
 
