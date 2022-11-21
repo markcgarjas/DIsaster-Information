@@ -21,9 +21,9 @@
         <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
       </ul>
 
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <%= link_to 'Add Disaster Information', new_post_path, class: 'btn btn-outline-light me-2' if user_signed_in? %>
-      </form>
+<!--      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">-->
+        <%#= link_to 'Add Disaster Information', new_post_path, class: 'btn btn-outline-light me-2' if user_signed_in? %>
+<!--      </form>-->
 
       <div class="text-end">
         <%= link_to "Login", new_user_session_path, class: 'btn btn-outline-light me-2' unless user_signed_in? %>
