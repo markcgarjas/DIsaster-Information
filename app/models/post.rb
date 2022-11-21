@@ -6,10 +6,10 @@ class Post < ApplicationRecord
   validates :content, presence: true
   validates :address, presence: true
   belongs_to :user
-
   has_many :comments
   has_many :post_type_ships
   has_many :types, through: :post_type_ships
+  has_one :posts_count_preview
   mount_uploader :avatar, AvatarUploader
   belongs_to :region, class_name: 'Address::Region', foreign_key: 'address_region_id'
   belongs_to :province, class_name: 'Address::Province', foreign_key: 'address_province_id', optional: true
