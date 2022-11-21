@@ -69,7 +69,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @post, :edit?, policy_class: PostPolicy
+  end
 
   def show
     respond_to do |format|
@@ -79,6 +81,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    authorize @post, :edit?, policy_class: PostPolicy
     @post.update(post_params)
     @post.user = current_user
     if @post.save
@@ -88,6 +91,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    authorize @post, :destroy?, policy_class: PostPolicy
     if @post.comments_count >= 1
       flash[:notice] = "This information has comment you can't delete."
     else
