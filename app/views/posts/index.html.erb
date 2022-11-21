@@ -68,7 +68,7 @@
                 <tbody>
                 <tr>
                   <td><%= link_to 'Show', post_path(post), class: 'btn btn-outline-dark me-2' %></td>
-                  <td><%= button_to 'Delete', post_path(post), class: 'btn btn-outline-danger me-2', :onclick => "return confirm('Are you sure you want to delete?')", method: :delete if post.user == current_user %></td>
+                  <td><%= button_to 'Delete', post_path(post), class: 'btn btn-outline-danger me-2', :onclick => "return confirm('Are you sure you want to delete?')", method: :delete if policy(post).destroy? %></td>
                 </tr>
                 </tbody>
               </table>

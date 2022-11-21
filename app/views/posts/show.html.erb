@@ -71,7 +71,7 @@
               <tbody>
               <tr>
                 <td><%= link_to 'Back', posts_path, class: 'btn btn-outline-primary me-2' %></td>
-                <td><%= link_to 'Edit Disaster Information', edit_post_path, class: 'btn btn-outline-dark me-2' if @post.user == current_user %></td>
+                <td><%= link_to 'Edit Disaster Information', edit_post_path, class: 'btn btn-outline-dark me-2' if policy(@post).edit? %></td>
               </tr>
               </tbody>
             </table>
