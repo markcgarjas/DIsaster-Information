@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   constraints(AdminDomainConstraint.new) do
     namespace :admin do
       resources :users
+      resources :posts
     end
   end
   get "/:unique_string", to: "posts#short_url"
