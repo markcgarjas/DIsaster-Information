@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :posts
   enum genre: { client: 0, admin: 1 }
   has_many :orders
+
+  validates :balance, numericality: { greater_than_or_equal_to: 0 }
 end
