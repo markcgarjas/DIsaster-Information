@@ -1,7 +1,8 @@
 class Order < ApplicationRecord
   include AASM
   belongs_to :user
-  
+  after_create :assign_serial_number
+
   aasm column: :state do
     state :pending, initial: true
     state :submitted, :paid, :failed, :revoked
@@ -21,5 +22,11 @@ class Order < ApplicationRecord
     event :revoke do
       transitions from: [:pending, :submitted], to: :revoked
     end
+  end
+
+  private
+
+  def assign_serial_number
+    self.update(serial_number: "gem-#{id.to_s.rjust(99, '1')}")
   end
 end
