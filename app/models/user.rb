@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :comments
   has_many :posts
   enum genre: { client: 0, admin: 1 }
+  has_many :orders
 end
