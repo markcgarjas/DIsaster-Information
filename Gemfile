@@ -21,6 +21,8 @@ gem 'pundit'
 gem 'scenic'
 gem 'scenic-mysql_adapter'
 gem 'aasm'
+gem 'jwt'
+gem 'slack-notifier'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
