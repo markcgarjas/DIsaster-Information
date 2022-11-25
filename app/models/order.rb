@@ -40,6 +40,6 @@ class Order < ApplicationRecord
   private
 
   def assign_serial_number
-    self.update(serial_number: "gem-#{id.to_s.rjust(99, '1')}")
+    self.update(serial_number: "gem-#{id.to_s.rjust(9, '123')}")
   end
 end
