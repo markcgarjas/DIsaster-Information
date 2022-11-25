@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_22_054530) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_25_083834) do
   create_table "address_barangays", charset: "utf8mb4", force: :cascade do |t|
     t.string "code"
     t.string "name"
@@ -73,6 +73,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_054530) do
     t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "bank_name"
+    t.string "bank_card_number"
+    t.string "bank_real_name"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
