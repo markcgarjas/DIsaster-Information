@@ -1,4 +1,8 @@
 class Order < ApplicationRecord
+  validates :amount, presence: true
+  validates :bank_card_number, presence: true
+  validates :bank_name, presence: true
+  validates :bank_real_name, presence: true
   include AASM
   belongs_to :user
   after_create :assign_serial_number

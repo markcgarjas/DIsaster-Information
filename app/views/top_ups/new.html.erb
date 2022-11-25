@@ -1,5 +1,26 @@
 <%= form_with model: @order, url: top_ups_path do |f| %>
-  <%= f.label :amount %>
-  <%= f.number_field :amount %>
+  <% if @order.errors.any? %>
+    <ul>
+      <% @order.errors.each do |error| %>
+        <ol><%= error.full_message %></ol>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= f.label :amount %><br>
+    <%= f.number_field :amount %>
+  </div>
+  <div>
+    <%= f.label :bank_name %><br>
+    <%= f.text_field :bank_name %>
+  </div>
+  <div>
+    <%= f.label :bank_real_name %><br>
+    <%= f.text_field :bank_real_name %>
+  </div>
+  <div>
+    <%= f.label :bank_card_number %><br>
+    <%= f.number_field :bank_card_number %>
+  </div>
   <%= f.submit %>
 <% end %>
